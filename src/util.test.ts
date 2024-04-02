@@ -1,7 +1,8 @@
+
 import { urlWithContextAsQuery } from './util';
 
 test('should not add paramters to URL', async () => {
-    const someUrl = new URL('https://test.com');
+    const someUrl = 'https://test.com';
 
     //@ts-expect-error on purpose for testing!
     const result = urlWithContextAsQuery(someUrl, {});
@@ -10,7 +11,7 @@ test('should not add paramters to URL', async () => {
 });
 
 test('should add context as query params', async () => {
-    const someUrl = new URL('https://test.com');
+    const someUrl = 'https://test.com';
 
     const result = urlWithContextAsQuery(someUrl, {
         appName: 'test',
@@ -23,7 +24,7 @@ test('should add context as query params', async () => {
 });
 
 test('should add context properties as query params', async () => {
-    const someUrl = new URL('https://test.com');
+    const someUrl = 'https://test.com';
 
     const result = urlWithContextAsQuery(someUrl, {
         appName: 'test',
@@ -37,7 +38,7 @@ test('should add context properties as query params', async () => {
 });
 
 test('should exclude context properties that are null or undefined', async () => {
-    const someUrl = new URL('https://test.com');
+    const someUrl ='https://test.com';
 
     const result = urlWithContextAsQuery(someUrl, {
         appName: 'test',

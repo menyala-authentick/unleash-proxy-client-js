@@ -3521,6 +3521,11 @@ url-parse@^1.5.3:
     querystringify "^2.1.1"
     requires-port "^1.0.0"
 
+url-shim@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/url-shim/-/url-shim-1.0.1.tgz#8842662b0f2edef8df4ebbe507466f04f771eb1b"
+  integrity sha512-8nwZkCP7pbI8ifcifTZSLRO3W+CWuh/mafPvc7utPRqgxAORnsZIzQ5K8LUsHiQ4mTtJrKRAJmW2ZHxQk0rKUA==
+
 uuid@^9.0.1:
   version "9.0.1"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-9.0.1.tgz#e188d4c8853cc722220392c424cd637f32293f30"

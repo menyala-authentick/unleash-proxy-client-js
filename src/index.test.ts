@@ -1,7 +1,5 @@
 import { FetchMock } from 'jest-fetch-mock';
 import 'jest-localstorage-mock';
-import * as data from './test/testdata.json';
-import IStorageProvider from './storage-provider';
 import {
     EVENTS,
     IConfig,
@@ -9,7 +7,9 @@ import {
     IToggle,
     UnleashClient,
 } from './index';
+import IStorageProvider from './storage-provider';
 import { getTypeSafeRequest, getTypeSafeRequestUrl } from './test';
+import * as data from './test/testdata.json';
 
 jest.useFakeTimers();
 
@@ -1510,7 +1510,7 @@ test('Should publish ready only when the first fetch was successful', async () =
 });
 
 test('Should be able to configure UnleashClient with a URL instance', () => {
-    const url = new URL('test', 'http://localhost');
+    const url = 'http://localhost/test';
     const config: IConfig = {
         url,
         clientKey: '12',

@@ -1,9 +1,9 @@
 import { TinyEmitter } from 'tiny-emitter';
+import EventsHandler from './events-handler';
 import Metrics from './metrics';
 import type IStorageProvider from './storage-provider';
 import InMemoryStorageProvider from './storage-provider-inmemory';
 import LocalStorageProvider from './storage-provider-local';
-import EventsHandler from './events-handler';
 import { notNullOrUndefined, urlWithContextAsQuery } from './util';
 
 const DEFINED_FIELDS = [
@@ -36,7 +36,7 @@ const isDefinedContextField = (field: string): field is DefinedField => {
 };
 
 interface IConfig extends IStaticContext {
-    url: URL | string;
+    url: string;
     clientKey: string;
     disableRefresh?: boolean;
     refreshInterval?: number;
@@ -128,7 +128,7 @@ export class UnleashClient extends TinyEmitter {
     private timerRef?: any;
     private storage: IStorageProvider;
     private refreshInterval: number;
-    private url: URL;
+    private url: string;
     private clientKey: string;
     private etag = '';
     private metrics: Metrics;
@@ -180,7 +180,7 @@ export class UnleashClient extends TinyEmitter {
         this.eventsHandler = new EventsHandler();
         this.impressionDataAll = impressionDataAll;
         this.toggles = bootstrap && bootstrap.length > 0 ? bootstrap : [];
-        this.url = url instanceof URL ? url : new URL(url);
+        this.url = url;
         this.clientKey = clientKey;
         this.headerName = headerName;
         this.customHeaders = customHeaders;
@@ -492,6 +492,7 @@ export class UnleashClient extends TinyEmitter {
 }
 
 // export storage providers from root module
-export { type IStorageProvider, LocalStorageProvider, InMemoryStorageProvider };
+export { InMemoryStorageProvider, LocalStorageProvider, type IStorageProvider };
 
-export type { IConfig, IContext, IMutableContext, IVariant, IToggle };
+    export type { IConfig, IContext, IMutableContext, IToggle, IVariant };
+
