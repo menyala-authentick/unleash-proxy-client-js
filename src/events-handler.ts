@@ -1,9 +1,9 @@
+import { v1 as uuidv1 } from 'uuid';
 import { IContext } from '.';
-import { v4 as uuidv4 } from 'uuid';
 
 class EventsHandler {
     private generateEventId() {
-        return uuidv4();
+        return uuidv1();
     }
 
     public createImpressionEvent(
